@@ -8,7 +8,7 @@ import LogoSVG from '@/public/logo.svg'
 
 export function Header() {
   return (
-    <header className="shadow-body sticky top-0 px-4 md:rounded-b-[30px]">
+    <header className="sticky top-0 z-50 bg-inherit px-4 shadow-body md:rounded-b-[30px]">
       <div className="container flex h-[57px] items-center justify-between md:h-[100px]">
         <div className="lg:hidden">
           <Button variant="ghost" size="icon" className="text-primary">

@@ -26,7 +26,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${fonts} flex flex-col font-sans`}>
         <Header />
-        <main className="container flex flex-1 flex-col">{children}</main>
+        <main className="flex flex-1 flex-col px-4 py-10">
+          <div className="container">{children}</div>
+        </main>
         <Footer />
       </body>
     </html>
