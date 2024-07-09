@@ -10,8 +10,8 @@ import '@/styles/globals.css'
 export const metadata: Metadata = {
   ...sharedMetadata,
   title: {
-    template: '%s | Monito Pet Shop',
-    default: 'Monito Pet Shop ',
+    template: '%s | Peppa Pets',
+    default: 'Peppa Pets',
   },
   description: 'HNG11 Timbu Cloud Shop - Product Design and Frontend Website',
   keywords: ['timbu', 'shop', 'ecommerce', 'marketplace'],
@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${fonts} flex flex-col font-sans`}>
         <Header />
-        <main className="flex flex-1 flex-col px-4 py-10">
+        <main className="mt-[57px] flex flex-1 flex-col px-4 py-10 md:mt-[100px]">
           <div className="container">{children}</div>
         </main>
         <Footer />

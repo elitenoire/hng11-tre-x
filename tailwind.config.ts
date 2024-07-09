@@ -25,7 +25,10 @@ const config = {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        foreground: {
+          DEFAULT: 'hsl(var(--foreground))',
+          light: 'hsl(var(--foreground-light))',
+        },
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
@@ -35,6 +38,11 @@ const config = {
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
+        },
+        subtle: {
+          DEFAULT: 'hsl(var(--subtle))',
+          foreground: 'hsl(var(--subtle-foreground))',
+          dark: 'hsl(var(--subtle-dark))',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
@@ -59,9 +67,10 @@ const config = {
       },
       boxShadow: {
         body: '0 10px 20px 0px rgba(0,0,0,0.03)',
-        card: '0 4px 28px -2px rgba(0,0,0,0.08)',
+        soft: '0 4px 28px -2px rgba(0,0,0,0.08)',
       },
       borderWidth: {
+        px: '1px',
         '1.5': '1.5px',
       },
       borderRadius: {

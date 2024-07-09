@@ -7,17 +7,17 @@ import { cn } from '@/lib/utils'
 
 export function SocialMedia({ className }: { className?: string }) {
   return (
-    <div className={cn('flex gap-10', className)}>
-      <a href="#" className="hover:text-primary-light text-primary">
+    <div className={cn('flex flex-wrap justify-around gap-x-10 gap-y-4', className)}>
+      <a href="#" className="text-primary hover:text-primary-light">
         <Facebook className="size-[1em]" />
       </a>
-      <a href="#" className="hover:text-primary-light size-[1em] text-primary">
+      <a href="#" className="size-[1em] text-primary hover:text-primary-light">
         <Instagram className="size-[1em]" />
       </a>
-      <a href="#" className="hover:text-primary-light size-[1em] text-primary">
+      <a href="#" className="size-[1em] text-primary hover:text-primary-light">
         <Twitter className="size-[1em]" />
       </a>
-      <a href="#" className="hover:text-primary-light size-[1em] text-primary">
+      <a href="#" className="size-[1em] text-primary hover:text-primary-light">
         <Youtube className="size-[1em]" />
       </a>
     </div>

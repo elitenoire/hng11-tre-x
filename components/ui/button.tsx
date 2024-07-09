@@ -10,18 +10,19 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: 'bg-primary text-primary-foreground hover:bg-primary-light',
+        inverse: 'bg-primary-light text-primary-foreground hover:bg-primary',
         secondary: 'bg-primary-foreground text-primary hover:bg-secondary',
         outline:
           'border-1.5 border-current bg-transparent text-primary-foreground hover:text-primary-xlight',
-        muted: 'text-primary hover:text-primary-foreground',
+        subtle: 'bg-subtle text-subtle-foreground hover:bg-subtle-dark',
         link: 'font-semibold text-primary hover:text-primary-light',
 
         destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-        ghost: 'hover:text-primary-light',
+        ghost: 'hover:text-primary-light hover:bg-primary-foreground',
       },
       size: {
-        sm: 'h-9 rounded-[10px] py-1.5 px-3.5',
-        md: 'h-11 rounded-[8px] py-3.5 px-7',
+        sm: 'h-9 rounded-[10px] py-1.5 px-3.5 font-semibold',
+        md: 'h-11 rounded-lg py-3.5 px-7',
         lg: 'h-[52px] rounded-full py-3.5 px-7',
         icon: 'h-11 w-11',
         logo: 'h-auto w-full',

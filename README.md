@@ -1,6 +1,6 @@
 <div align="center">
     <a href="#">
-        <img width="100%" src="./public/banner.svg" alt="Monito - Pets for Best" title="Monito - Pets for Best" />
+        <img width="100%" src="./public/banner.svg" alt="Peppa - Pets for Best" title="Peppa - Pets for Best" />
     </a>
 </div>
 

@@ -7,7 +7,7 @@ import Play from '@/public/play.svg'
 export function Hero() {
   return (
     <section className="relative overflow-hidden rounded-2xl bg-secondary md:rounded-[20px]">
-      <div className="relative before:absolute before:-bottom-[50px] before:-left-[5%] before:size-[150%] before:-rotate-[175.16deg] before:rounded-[100px] before:bg-primary sm:before:-bottom-[100px] md:before:bottom-0 md:before:left-[40%] md:before:rotate-[160.22deg]">
+      <div className="relative before:absolute before:-bottom-[50px] before:-left-[5%] before:size-[150%] before:-rotate-[175.16deg] before:bg-primary sm:before:-bottom-[100px] md:before:bottom-0 md:before:left-[40%] md:before:rotate-[160.22deg] md:before:rounded-[100px]">
         <div className="z-1 relative space-y-4 px-4 pt-8 text-primary-foreground sm:px-8 sm:text-center md:px-10 md:pb-14 md:pt-16 md:text-right lg:px-16">
           <h1 className="font-bold capitalize">
             <span className="block text-[42px] leading-[60px] md:text-[52px] md:leading-[68px]">
@@ -18,7 +18,7 @@ export function Hero() {
                 Thousands More{' '}
                 <span className="inline-flex items-center gap-x-2">
                   Fun!
-                  <span className="ml-1 size-[12.44px] rotate-[30.59deg] rounded-[4px] bg-current md:hidden" />
+                  <span className="ml-1 size-[12.44px] rotate-[30.59deg] rounded bg-current md:hidden" />
                 </span>
               </span>
             </span>
@@ -29,7 +29,7 @@ export function Hero() {
           </p>
           <div className="flex max-w-[344px] flex-wrap gap-4 pt-4 sm:mx-auto sm:max-md:text-balance md:mr-0">
             <Button variant="outline" size="lg" className="flex-1">
-              View Intro <Play className="size-6" />
+              View Intro <Play className="ml-2 size-6 fill-none" />
             </Button>
             <Button variant="secondary" size="lg" className="flex-1" asChild>
               <Link href="#">Shop Pets</Link>

@@ -6,6 +6,7 @@
   :root {
     --background: 0 0% 92%;
     --foreground: 240 4% 16%;
+    --foreground-light: 196 9% 44%;
 
     --card: 0 0% 92%;
     --card-foreground: 240 4% 16%;
@@ -21,6 +22,10 @@
     --secondary: 41 88% 83%;
     --secondary-foreground: 163 74% 16%;
 
+    --subtle: 240 5% 84%;
+    --subtle-foreground: 163 74% 16%;
+    --subtle-dark: 240 4% 80%;
+
     --muted: 150 9% 91%;
     --muted-foreground: 163 9% 45%;
 
@@ -30,7 +35,7 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5% 84%;
+    --border: 240 5% 65%;
     --input: 240 5% 84%;
     /* --ring: 162 36% 72%; */
     --ring: 161 81% 24%;
