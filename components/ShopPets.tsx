@@ -6,6 +6,8 @@ import { PetCard } from '@/components/PetCard'
 
 import Filter from '@/public/filter.svg'
 
+import { pets } from '@/data/pets'
+
 export function ShopPets() {
   return (
     <section className="mt-10 flex gap-6">
@@ -48,13 +50,11 @@ export function ShopPets() {
           </div>
         </div>
         <ul className="grid grid-cols-[repeat(auto-fit,minmax(var(--min),1fr))] gap-2 [--min:150px] sm:gap-4 sm:[--min:185px] lg:[--min:280px]">
-          {Array(12)
-            .fill('')
-            .map((item, idx) => (
-              <li key={idx}>
-                <PetCard />
-              </li>
-            ))}
+          {pets.map(({ title, imgSrc, age, gene, price }, idx) => (
+            <li key={idx}>
+              <PetCard title={title} age={age} gene={gene} price={price} imgSrc={imgSrc} />
+            </li>
+          ))}
         </ul>
       </div>
     </section>

@@ -20,15 +20,30 @@ export default function CheckoutPage() {
             <GrandTotal subtotal="NGN 644,875.00" />
           </div>
         </div>
-        <div className="top-0 flex-1 lg:sticky">
+        <div className="top-[calc(100px+1rem)] flex-1 lg:sticky lg:self-start">
           <CheckoutCard
             title="Order Summary"
             description="Review your selected items and select your preferred shipping options to enhance your ordering experience"
           >
             <div className="space-y-5">
-              <OrderCard />
-              <OrderCard />
-              <OrderCard />
+              <OrderCard
+                title="Pomeranian White Puppy - Max"
+                gene="Female"
+                price="NGN 230,432.00"
+                imgSrc="/img/charlie.png"
+              />
+              <OrderCard
+                title="Golden Retriever Puppy - Bella"
+                gene="Female"
+                price="NGN 215,678.00"
+                imgSrc="/img/luna.png"
+              />
+              <OrderCard
+                title="Labrador Puppy - Charlie"
+                gene="Male"
+                price="NGN 198,765.00"
+                imgSrc="/img/oliver.png"
+              />
               <div className="max-sm:hidden">
                 <GrandTotal subtotal="NGN 644,875.00" />
               </div>

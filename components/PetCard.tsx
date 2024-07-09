@@ -14,9 +14,9 @@ type PetCardProps = {
 }
 
 export function PetCard({
-  title = 'Pomeranian White Puppy - MO231 - Bella',
+  title = 'Pomeranian White - Bella',
   gene = 'Female',
-  age = '5 months old',
+  age = '3 months old',
   price = 'NGN 320,300.00',
   imgSrc = '/img/bella.png',
   alt = 'pet for sale',
@@ -50,7 +50,7 @@ export function PetCard({
         <p className="font-extrabold max-lg:text-sm">{price}</p>
         <div className="flex gap-1.5 sm:gap-2.5">
           <Button variant="subtle" asChild className="max-sm:px-2.5">
-            <Link href="#">
+            <Link href="/cart">
               <CartSVG className="size-5" />
               <span className="ml-1.5 max-lg:hidden">Add to cart</span>
             </Link>
