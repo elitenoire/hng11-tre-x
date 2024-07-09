@@ -1,13 +1,14 @@
 import type { PropsWithChildren } from 'react'
 import Image from 'next/image'
 
-type OrderCardProps = {
+export type OrderCardProps = {
   title: string
   price: string
   gene: string
   qty: number
   imgSrc: string
   alt?: string
+  shrink?: boolean
 }
 
 export function OrderCard({
@@ -17,6 +18,7 @@ export function OrderCard({
   qty = 1,
   imgSrc = '/img/bella.png',
   alt = 'pet for sale',
+  shrink,
   children,
 }: PropsWithChildren<Partial<OrderCardProps>>) {
   return (
@@ -28,14 +30,14 @@ export function OrderCard({
       </div>
       <div className="flex-1 space-y-2.5">
         <div className="flex justify-between gap-2.5 max-sm:flex-col">
-          <div className="space-y-2.5 text-lg">
-            <h3 className="font-bold text-primary">{title}</h3>
-            <p className="font-extrabold">{price}</p>
+          <div className="space-y-2.5">
+            <h3 className={`font-bold text-primary ${shrink ? '' : 'text-lg'}`}>{title}</h3>
+            <p className="text-lg font-extrabold">{price}</p>
           </div>
           <div className="flex justify-between gap-y-2.5 text-right text-foreground-light max-sm:flex-wrap sm:flex-col">
             <p className="capitalize">{gene}</p>
             <p>
-              Qty <span className="bold text-foreground">{qty}</span>
+              Qty: <span className="bold text-foreground">{qty}</span>
             </p>
           </div>
         </div>

@@ -1,20 +1,21 @@
-import { RadioGroup } from '@/components/ui/radio-group'
 import { CheckoutCard } from '@/components/CheckoutCard'
 import { OrderCard } from '@/components/OrderCard'
 import { GrandTotal } from '@/components/GrandTotal'
 import { ShippingCard } from '@/components/ShippingCard'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { InputField } from '@/components/InputField'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
+import { RadioGroup } from '@/components/ui/radio-group'
 import { Button } from '@/components/ui/button'
 
 export default function CheckoutPage() {
   return (
     <div className="space-y-12">
-      <div>Breadcrumbs</div>
-      <div className="flex flex-col gap-x-32 gap-y-12 lg:flex-row-reverse">
-        <div className="md:hidden">
+      <Breadcrumbs />
+      <div className="flex flex-col gap-x-32 gap-y-12 max-lg:mx-auto max-lg:max-w-2xl lg:flex-row-reverse">
+        <div className="lg:hidden">
           <h2 className="text-2xl font-bold capitalize text-primary">Cart</h2>
           <div className="-mx-4 rounded-[20px] px-4 py-5 shadow-body">
             <GrandTotal subtotal="NGN 644,875.00" />
@@ -30,7 +31,7 @@ export default function CheckoutPage() {
                 title="Pomeranian White Puppy - Max"
                 gene="Female"
                 price="NGN 230,432.00"
-                imgSrc="/img/charlie.png"
+                imgSrc="/img/max.png"
               />
               <OrderCard
                 title="Golden Retriever Puppy - Bella"
@@ -42,9 +43,9 @@ export default function CheckoutPage() {
                 title="Labrador Puppy - Charlie"
                 gene="Male"
                 price="NGN 198,765.00"
-                imgSrc="/img/oliver.png"
+                imgSrc="/img/charlie.png"
               />
-              <div className="max-sm:hidden">
+              <div className="max-lg:hidden">
                 <GrandTotal subtotal="NGN 644,875.00" />
               </div>
             </div>

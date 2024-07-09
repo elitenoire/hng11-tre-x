@@ -1,4 +1,12 @@
-export const pets = [
+export type Pet = {
+  title: string
+  gene: string
+  age: string
+  price: string
+  imgSrc: string
+}
+
+export const pets: Pet[] = [
   {
     title: 'Snowball - Max',
     gene: 'Male',
