@@ -5,7 +5,7 @@ import { OrderCard } from '@/components/OrderCard'
 import { GrandTotal } from '@/components/GrandTotal'
 import { ShippingCard } from '@/components/ShippingCard'
 import { SuccessCard } from '@/components/SuccessCard'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsCheckout } from '@/components/Breadcrumbs'
 import { InputField } from '@/components/InputField'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default function CheckoutPage() {
   return (
     <div className="space-y-12">
-      <Breadcrumbs />
+      <BreadcrumbsCheckout />
       <div className="flex flex-col gap-x-32 gap-y-12 max-lg:mx-auto max-lg:max-w-2xl lg:flex-row-reverse">
         <div className="lg:hidden">
           <h2 className="text-2xl font-bold capitalize text-primary">Cart</h2>

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Share2 } from 'lucide-react'
 import { DiscoverPets } from '@/components/DiscoverPets'
 import { PetReview } from '@/components/PetReview'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { BreadcrumbsPets } from '@/components/Breadcrumbs'
 import { SocialMedia } from '@/components/SocialMedia'
 import { PetCarousel } from '@/components/PetCarousel'
 import { Button } from '@/components/ui/button'
@@ -47,7 +47,7 @@ export default function PetPage() {
         </div>
         <div className="flex flex-1 flex-col gap-10 lg:gap-5">
           <div className="space-y-[18px] rounded-[20px] max-lg:-mx-4 max-lg:px-4 max-lg:py-5 max-lg:shadow-body">
-            <Breadcrumbs />
+            <BreadcrumbsPets />
             <p className="text-sm font-medium text-foreground-light/50">SKU #1000078</p>
             <h1 className="text-2xl font-bold text-primary">Snowball - Max</h1>
             <p className="text-xl font-bold text-foreground-light">NGN 230,432.00</p>

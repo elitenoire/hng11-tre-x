@@ -5,6 +5,7 @@ import { GrandTotal } from '@/components/GrandTotal'
 import { Button } from '@/components/ui/button'
 import { CheckoutCard } from '@/components/CheckoutCard'
 import { CartCard } from '@/components/CartCard'
+import { BreadcrumbsCart } from '@/components/Breadcrumbs'
 
 export const metadata: Metadata = {
   title: 'My Cart',
@@ -24,6 +25,7 @@ export default function CartPage() {
   const subtotal = 'NGN 644,875.00'
   return (
     <div className="space-y-14">
+      <BreadcrumbsCart />
       <div className="flex flex-col gap-x-32 gap-y-12 max-lg:mx-auto max-lg:max-w-2xl lg:flex-row-reverse">
         <div className="top-[calc(100px+1rem)] flex-1 lg:sticky lg:self-start">
           <div>
