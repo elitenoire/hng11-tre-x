@@ -25,8 +25,8 @@ export function Header() {
               </Link>
             </Button>
           </div>
-          <Button variant="link" className="mr-8 max-lg:hidden">
-            Shop Pets
+          <Button variant="link" className="mr-8 max-lg:hidden" asChild>
+            <Link href="/">Shop Pets</Link>
           </Button>
         </div>
         <div className="flex md:gap-3.5">

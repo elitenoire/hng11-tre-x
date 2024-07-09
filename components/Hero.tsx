@@ -32,7 +32,7 @@ export function Hero() {
               View Intro <Play className="ml-2 size-6 fill-none" />
             </Button>
             <Button variant="secondary" size="lg" className="flex-1" asChild>
-              <Link href="#">Shop Pets</Link>
+              <Link href="#shop-pets">Shop Pets</Link>
             </Button>
           </div>
         </div>

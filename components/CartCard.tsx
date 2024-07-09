@@ -4,16 +4,9 @@ import { QtyInput } from '@/components/QtyInput'
 
 type CartCardProps = {} & Partial<OrderCardProps>
 
-export function CartCard({}: CartCardProps) {
+export function CartCard({ title, gene, price, imgSrc }: CartCardProps) {
   return (
-    <OrderCard
-      title="Pomeranian White Puppy - Max"
-      gene="Female"
-      price="NGN 230,432.00"
-      qty={1}
-      imgSrc="/img/max.png"
-      shrink
-    >
+    <OrderCard title={title} gene={gene} price={price} qty={1} imgSrc={imgSrc} shrink>
       <div className="flex justify-end">
         <QtyInput withDelete />
       </div>

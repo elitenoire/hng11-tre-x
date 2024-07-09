@@ -7,6 +7,10 @@ import { CheckoutCard } from '@/components/CheckoutCard'
 import { CartCard } from '@/components/CartCard'
 import { BreadcrumbsCart } from '@/components/Breadcrumbs'
 
+import { pets } from '@/data/pets'
+
+const orderedPets = pets.slice(3, 6)
+
 export const metadata: Metadata = {
   title: 'My Cart',
 }
@@ -52,9 +56,9 @@ export default function CartPage() {
                   Clear Cart
                 </Button>
               </div>
-              <CartCard />
-              <CartCard />
-              <CartCard />
+              {orderedPets.map(({ title, gene, imgSrc, price }) => (
+                <CartCard key={title} title={title} gene={gene} imgSrc={imgSrc} price={price} />
+              ))}
             </div>
           </CheckoutCard>
           <div className="rounded-[20px] p-5 shadow-body lg:hidden">

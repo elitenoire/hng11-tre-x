@@ -10,7 +10,7 @@ import { pets } from '@/data/pets'
 
 export function ShopPets() {
   return (
-    <section className="mt-10 flex gap-6">
+    <section id="shop-pets" className="mt-10 flex gap-6">
       <div className="sticky top-0 w-[280px] space-y-5 self-start text-primary max-lg:hidden">
         <h2 className="text-2xl font-bold text-primary">Filter</h2>
         <div>
