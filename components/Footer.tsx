@@ -26,7 +26,7 @@ export function Footer() {
           <NavLinks />
           <SocialMedia className="text-[1.5rem] md:pr-3.5" />
         </div>
-        <div className="flex items-center justify-between border-t-1.5 border-foreground-light pt-10 max-lg:flex-col">
+        <div className="flex items-center justify-between border-t-1.5 border-foreground-light/50 pt-10 max-lg:flex-col">
           <div className="w-[115px] max-lg:mb-6">
             <Button variant="link" size="logo" asChild>
               <Link href="/">

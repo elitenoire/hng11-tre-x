@@ -23,7 +23,7 @@ export function PetCard({
 }: Partial<PetCardProps>) {
   return (
     <article className="group flex flex-col gap-2 rounded-xl bg-background p-2 shadow-soft">
-      <Link href="#">
+      <Link href="/pet">
         <span className="relative block aspect-square overflow-hidden rounded-lg">
           <Image
             src={imgSrc}
@@ -35,7 +35,7 @@ export function PetCard({
       </Link>
       <div className="space-y-2 pt-2 sm:px-2 sm:pb-2">
         <h3 className="font-bold text-primary max-lg:text-sm">
-          <Link href="#" className="transition-colors hover:text-primary-light">
+          <Link href="/pet" className="transition-colors hover:text-primary-light">
             {title}
           </Link>
         </h3>

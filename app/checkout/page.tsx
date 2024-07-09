@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 import { CheckoutCard } from '@/components/CheckoutCard'
 import { OrderCard } from '@/components/OrderCard'
 import { GrandTotal } from '@/components/GrandTotal'
@@ -9,6 +11,10 @@ import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { RadioGroup } from '@/components/ui/radio-group'
 import { Button } from '@/components/ui/button'
+
+export const metadata: Metadata = {
+  title: 'Checkout',
+}
 
 export default function CheckoutPage() {
   return (

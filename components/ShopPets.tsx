@@ -15,7 +15,7 @@ export function ShopPets() {
         <h2 className="text-2xl font-bold text-primary">Filter</h2>
         <div>
           <CheckboxFilter title="Gender">{['Male', 'Female']}</CheckboxFilter>
-          <Separator />
+          <Separator className="bg-input/50" />
           <RadioFilter title="Color">
             {[
               ['Red', 'red'],
@@ -29,7 +29,7 @@ export function ShopPets() {
               ['Tan', 'lightyellow'],
             ]}
           </RadioFilter>
-          <Separator />
+          <Separator className="bg-input/50" />
           <CheckboxFilter title="Breed">{['Small', 'Medium', 'Large']}</CheckboxFilter>
         </div>
       </div>

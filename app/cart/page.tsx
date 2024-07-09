@@ -1,10 +1,14 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
-
 import { DiscoverPets } from '@/components/DiscoverPets'
 import { GrandTotal } from '@/components/GrandTotal'
 import { Button } from '@/components/ui/button'
 import { CheckoutCard } from '@/components/CheckoutCard'
 import { CartCard } from '@/components/CartCard'
+
+export const metadata: Metadata = {
+  title: 'My Cart',
+}
 
 function CheckoutButton({ subtotal }: { subtotal: string }) {
   return (
