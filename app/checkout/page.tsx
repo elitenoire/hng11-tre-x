@@ -4,6 +4,7 @@ import { CheckoutCard } from '@/components/CheckoutCard'
 import { OrderCard } from '@/components/OrderCard'
 import { GrandTotal } from '@/components/GrandTotal'
 import { ShippingCard } from '@/components/ShippingCard'
+import { SuccessCard } from '@/components/SuccessCard'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { InputField } from '@/components/InputField'
 import { Input } from '@/components/ui/input'
@@ -11,6 +12,11 @@ import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { RadioGroup } from '@/components/ui/radio-group'
 import { Button } from '@/components/ui/button'
+import {
+  AdaptiveModal,
+  AdaptiveModalContent,
+  AdaptiveModalTrigger,
+} from '@/components/ui/adaptive-modal'
 
 export const metadata: Metadata = {
   title: 'Checkout',
@@ -135,9 +141,16 @@ export default function CheckoutPage() {
               <InputField label="Billing Address" placeholder="Enter your billing address" />
               <GrandTotal subtotal="NGN 644,875.00" tax="NGN 15,234.50" total="NGN 660,109.50" />
               <div>
-                <Button variant="inverse" size="md" className="w-full rounded-[10px] px-3">
-                  <span className="truncate">Pay NGN 660,109.50</span>
-                </Button>
+                <AdaptiveModal>
+                  <AdaptiveModalTrigger asChild>
+                    <Button variant="inverse" size="md" className="w-full rounded-[10px] px-3">
+                      <span className="truncate">Pay NGN 660,109.50</span>
+                    </Button>
+                  </AdaptiveModalTrigger>
+                  <AdaptiveModalContent>
+                    <SuccessCard />
+                  </AdaptiveModalContent>
+                </AdaptiveModal>
               </div>
             </div>
           </CheckoutCard>
