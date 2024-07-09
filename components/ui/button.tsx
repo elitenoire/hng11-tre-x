@@ -16,6 +16,7 @@ const buttonVariants = cva(
           'border-1.5 border-current bg-transparent text-primary-foreground hover:text-primary-xlight',
         subtle: 'bg-subtle text-subtle-foreground hover:bg-subtle-dark',
         link: 'font-semibold text-primary hover:text-primary-light',
+        carousel: 'bg-white/60 text-foreground hover:bg-white/70',
 
         destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
         ghost: 'hover:text-primary-light hover:bg-primary-foreground',

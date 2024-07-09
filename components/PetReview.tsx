@@ -8,7 +8,7 @@ import { reviews } from '@/data/reviews'
 
 export function PetReview() {
   return (
-    <div className="space-y-10 rounded-[20px] px-5 py-8 shadow-body lg:px-20">
+    <div className="space-y-10 rounded-[20px] px-5 py-8 shadow-body max-lg:mx-auto max-lg:max-w-2xl lg:px-20">
       <h3 className="text-2xl font-bold capitalize text-primary">
         Hear What Our Valued Customers Have to Say
       </h3>
