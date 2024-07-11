@@ -1,26 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import { Price } from '@/components/Price'
+
+import type { Pet } from '@/data/pets'
 
 import CartSVG from '@/public/cart.svg'
 
 type PetCardProps = {
-  title: string
-  gene: string
-  age: string
-  price: string
-  imgSrc: string
   alt?: string
-}
+} & Pet
 
-export function PetCard({
-  title = 'Pomeranian White - Bella',
-  gene = 'Female',
-  age = '3 months old',
-  price = 'NGN 320,300.00',
-  imgSrc = '/img/bella.png',
-  alt = 'pet for sale',
-}: Partial<PetCardProps>) {
+export function PetCard({ title, gene, age, price, imgSrc, alt = 'pet for sale' }: PetCardProps) {
   return (
     <article className="group flex flex-col gap-2 rounded-xl bg-background p-2 shadow-soft">
       <Link href="/pet">
@@ -47,7 +38,9 @@ export function PetCard({
             Age: <span className="font-bold">{age}</span>
           </p>
         </div>
-        <p className="font-extrabold max-lg:text-sm">{price}</p>
+        <p className="font-extrabold max-lg:text-sm">
+          <Price amount={price} />
+        </p>
         <div className="flex gap-1.5 sm:gap-2.5">
           <Button variant="subtle" asChild className="max-sm:px-2.5">
             <Link href="/cart">

@@ -2,7 +2,7 @@ import { type OrderCardProps, OrderCard } from '@/components/OrderCard'
 
 import { QtyInput } from '@/components/QtyInput'
 
-type CartCardProps = {} & Partial<OrderCardProps>
+type CartCardProps = {} & OrderCardProps
 
 export function CartCard({ title, gene, price, imgSrc }: CartCardProps) {
   return (

@@ -1,12 +1,5 @@
 import type { Metadata } from 'next'
 
-import { CheckoutCard } from '@/components/CheckoutCard'
-import { OrderCard } from '@/components/OrderCard'
-import { GrandTotal } from '@/components/GrandTotal'
-import { ShippingCard } from '@/components/ShippingCard'
-import { SuccessCard } from '@/components/SuccessCard'
-import { BreadcrumbsCheckout } from '@/components/Breadcrumbs'
-import { InputField } from '@/components/InputField'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -17,6 +10,16 @@ import {
   AdaptiveModalContent,
   AdaptiveModalTrigger,
 } from '@/components/ui/adaptive-modal'
+import { BreadcrumbsCheckout } from '@/components/Breadcrumbs'
+import { Price } from '@/components/Price'
+import { InputField } from '@/components/InputField'
+import { CheckoutCard } from '@/components/CheckoutCard'
+import { OrderCard } from '@/components/OrderCard'
+import { GrandTotal } from '@/components/GrandTotal'
+import { ShippingCard } from '@/components/ShippingCard'
+import { SuccessCard } from '@/components/SuccessCard'
+
+import { formatPrice } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Checkout',
@@ -30,7 +33,7 @@ export default function CheckoutPage() {
         <div className="lg:hidden">
           <h2 className="text-2xl font-bold capitalize text-primary">Cart</h2>
           <div className="-mx-4 rounded-[20px] px-4 py-5 shadow-body">
-            <GrandTotal subtotal="NGN 644,875.00" />
+            <GrandTotal subtotal={644875.0} />
           </div>
         </div>
         <div className="top-[calc(100px+1rem)] flex-1 lg:sticky lg:self-start">
@@ -42,23 +45,23 @@ export default function CheckoutPage() {
               <OrderCard
                 title="Pomeranian White Puppy - Max"
                 gene="Female"
-                price="NGN 230,432.00"
+                price={230432.0}
                 imgSrc="/img/max.png"
               />
               <OrderCard
                 title="Golden Retriever Puppy - Bella"
                 gene="Female"
-                price="NGN 215,678.00"
+                price={215678.0}
                 imgSrc="/img/luna.png"
               />
               <OrderCard
                 title="Labrador Puppy - Charlie"
                 gene="Male"
-                price="NGN 198,765.00"
+                price={198765.0}
                 imgSrc="/img/charlie.png"
               />
               <div className="max-lg:hidden">
-                <GrandTotal subtotal="NGN 644,875.00" />
+                <GrandTotal subtotal={644875.0} />
               </div>
             </div>
           </CheckoutCard>
@@ -110,13 +113,15 @@ export default function CheckoutPage() {
               <ShippingCard
                 title="FedEx Delivery"
                 time="1-3 days"
-                price="Free"
+                fee="Free"
+                value={0.0}
                 imgSrc="/img/fedex.png"
               />
               <ShippingCard
                 title="UPS Delivery"
                 time="0-2 days"
-                price="NGN 2,000"
+                fee={formatPrice(2000.0, 0, 0)}
+                value={2000.0}
                 imgSrc="/img/ups.png"
               />
             </RadioGroup>
@@ -139,12 +144,14 @@ export default function CheckoutPage() {
               </div>
               <InputField label="Card Holder" placeholder="Enter the name on your card" />
               <InputField label="Billing Address" placeholder="Enter your billing address" />
-              <GrandTotal subtotal="NGN 644,875.00" tax="NGN 15,234.50" total="NGN 660,109.50" />
+              <GrandTotal subtotal={644875.0} tax={15234.5} total={660109.5} />
               <div>
                 <AdaptiveModal>
                   <AdaptiveModalTrigger asChild>
                     <Button variant="inverse" size="md" className="w-full rounded-[10px] px-3">
-                      <span className="truncate">Pay NGN 660,109.50</span>
+                      <span className="truncate">
+                        Pay <Price amount={660109.5} />
+                      </span>
                     </Button>
                   </AdaptiveModalTrigger>
                   <AdaptiveModalContent>

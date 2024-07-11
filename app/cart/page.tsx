@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { DiscoverPets } from '@/components/DiscoverPets'
-import { GrandTotal } from '@/components/GrandTotal'
 import { Button } from '@/components/ui/button'
+import { BreadcrumbsCart } from '@/components/Breadcrumbs'
+import { Price } from '@/components/Price'
+import { GrandTotal } from '@/components/GrandTotal'
 import { CheckoutCard } from '@/components/CheckoutCard'
 import { CartCard } from '@/components/CartCard'
-import { BreadcrumbsCart } from '@/components/Breadcrumbs'
+import { DiscoverPets } from '@/components/DiscoverPets'
 
 import { pets } from '@/data/pets'
 
@@ -15,18 +16,20 @@ export const metadata: Metadata = {
   title: 'My Cart',
 }
 
-function CheckoutButton({ subtotal }: { subtotal: string }) {
+function CheckoutButton({ subtotal }: { subtotal: number }) {
   return (
     <Button variant="inverse" size="md" className="w-full rounded-[10px] px-3" asChild>
       <Link href="/checkout">
-        <span className="truncate">Checkout ({subtotal})</span>
+        <span className="truncate">
+          Checkout (<Price amount={subtotal} />)
+        </span>
       </Link>
     </Button>
   )
 }
 
 export default function CartPage() {
-  const subtotal = 'NGN 644,875.00'
+  const subtotal = 644875.0
   return (
     <div className="space-y-14">
       <BreadcrumbsCart />

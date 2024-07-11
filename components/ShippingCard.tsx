@@ -4,18 +4,20 @@ import { RadioGroupItem } from '@/components/ui/radio-group'
 type ShippingCardProps = {
   title: string
   time: string
-  price: string
+  fee: string
   imgSrc: string
+  value: number
   alt?: string
 }
 
 export function ShippingCard({
-  title = 'Standard',
-  time = '3 - 5 days',
-  price = 'Free',
+  title,
+  time,
+  fee,
   imgSrc,
+  value,
   alt = 'company logo',
-}: Partial<ShippingCardProps>) {
+}: ShippingCardProps) {
   return (
     <label
       htmlFor={title}
@@ -34,8 +36,8 @@ export function ShippingCard({
           <span className="block text-sm leading-3 text-foreground-light">Delivery: {time}</span>
         </span>
         <span className="flex items-center gap-x-3">
-          <RadioGroupItem id={title} value={price} className="size-5" />
-          <span className="truncate text-foreground-light">{price}</span>
+          <RadioGroupItem id={title} value={fee} className="size-5" />
+          <span className="truncate text-foreground-light">{fee}</span>
         </span>
       </span>
     </label>

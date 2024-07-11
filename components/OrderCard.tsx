@@ -1,26 +1,25 @@
 import type { PropsWithChildren } from 'react'
 import Image from 'next/image'
+import { Price } from '@/components/Price'
+
+import type { Pet } from '@/data/pets'
 
 export type OrderCardProps = {
-  title: string
-  price: string
-  gene: string
-  qty: number
-  imgSrc: string
+  qty?: number
   alt?: string
   shrink?: boolean
-}
+} & Pick<Pet, 'title' | 'price' | 'gene' | 'imgSrc'>
 
 export function OrderCard({
-  title = 'Golden Retriever Puppy - Bella',
-  price = 'NGN 215,678.00',
-  gene = 'Female',
+  title,
+  price,
+  gene,
+  imgSrc,
   qty = 1,
-  imgSrc = '/img/bella.png',
   alt = 'pet for sale',
   shrink,
   children,
-}: PropsWithChildren<Partial<OrderCardProps>>) {
+}: PropsWithChildren<OrderCardProps>) {
   return (
     <div className="flex flex-wrap items-center gap-x-3.5 rounded-[10px] border-px p-4">
       <div className="rounded-[10px] bg-border/10 p-1.5">
@@ -32,7 +31,9 @@ export function OrderCard({
         <div className="flex justify-between gap-2.5 max-sm:flex-col">
           <div className="space-y-2.5">
             <h3 className={`font-bold text-primary ${shrink ? '' : 'text-lg'}`}>{title}</h3>
-            <p className="text-lg font-extrabold">{price}</p>
+            <p className="text-lg font-extrabold">
+              <Price amount={price} />
+            </p>
           </div>
           <div className="flex justify-between gap-y-2.5 text-right text-foreground-light max-sm:flex-wrap sm:flex-col">
             <p className="capitalize">{gene}</p>

@@ -1,8 +1,21 @@
-import { type ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
+}
+
+export function formatPrice(price: number, min = 2, max = 2) {
+  return new Intl.NumberFormat('en-NG', {
+    style: 'currency',
+    currency: 'NGN',
+    currencyDisplay: 'code',
+    minimumFractionDigits: min,
+    maximumFractionDigits: max,
+  })
+    .format(price)
+    .replace('₦', 'NGN ')
+    .trim()
 }
 
 export function getMetadataRootURL() {
