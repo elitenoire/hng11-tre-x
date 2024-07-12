@@ -24,7 +24,7 @@ export default function PetPage() {
   return (
     <div className="space-y-14">
       <div className="flex gap-8 max-lg:mx-auto max-lg:max-w-2xl max-lg:flex-col lg:rounded-[20px] lg:border-1.5 lg:p-5 lg:shadow-body">
-        <div className="max-md:-px-4 flex-1 space-y-5 max-md:-mt-10">
+        <div className="max-md:-px-4 flex-1 space-y-5 max-md:-mt-10 lg:w-[calc(50%-1rem)]">
           <PetCarousel />
           <div className="space-y-5 max-lg:hidden">
             <div className="flex items-center justify-between rounded-[10px] bg-secondary px-3 py-2.5 text-sm font-bold">

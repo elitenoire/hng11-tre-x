@@ -19,6 +19,7 @@ export function PetCard({ title, gene, age, price, imgSrc, alt = 'pet for sale' 
           <Image
             src={imgSrc}
             alt={alt}
+            sizes="(min-width: 1200px) 262px, (min-width: 1040px) calc(33.57vw - 40px), (min-width: 820px) calc(25vw - 36px), (min-width: 500px) calc(31.33vw - 22px), (min-width: 340px) calc(50vw - 36px), calc(100vw - 48px)"
             fill
             className="transition-transform duration-700 group-hover:scale-105"
           />
