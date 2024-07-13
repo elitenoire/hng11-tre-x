@@ -2,6 +2,7 @@
 
 import { Hero } from '@/components/Hero'
 import { ShopPets } from '@/components/ShopPets'
+import { PetPagination } from '@/components/Pagination'
 
 // Bug: This overrides the title template
 // export const metadata: Metadata = {
@@ -13,6 +14,9 @@ export default function Home() {
     <>
       <Hero />
       <ShopPets />
+      <div className="pb-8 pt-14">
+        <PetPagination totalPage={3} />
+      </div>
     </>
   )
 }

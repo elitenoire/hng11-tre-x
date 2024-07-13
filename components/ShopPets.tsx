@@ -1,6 +1,8 @@
 'use client'
 
-import { useEffect, useState, useCallback, useTransition } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { useEffect, useCallback, useTransition } from 'react'
+import { usePetStore } from '@/stores/pet-store-provider'
 
 import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -19,33 +21,46 @@ import type { GetProductsResponse } from '@/types/products'
 
 import Filter from '@/public/filter.svg'
 
-import { IPets } from '@/types/app'
+// import { IPets } from '@/types/app'
 
 export function ShopPets() {
-  const [pets, setPets] = useState<IPets>([])
+  const searchParams = useSearchParams()
+  const currentPage = Number(searchParams.get('page')) || 1
+  const pageSize = Number(searchParams.get('size')) || 10
+
+  const { petsPerPage, setPetsPerPage } = usePetStore((state) => state)
+  // const [pets, setPets] = useState<IPets>([])
   const [isPending, startTransition] = useTransition()
+
+  const inStore = petsPerPage.hasOwnProperty(currentPage.toString())
+  const cachedPets = petsPerPage[currentPage.toString()] || []
 
   const fetchPets = useCallback(() => {
     startTransition(async () => {
       try {
-        const response = await fetch('/api/products')
+        const response = await fetch(`/api/products?page=${currentPage}&size=${pageSize}`)
         const { error, products } = (await response.json()) as GetProductsResponse
         if (products) {
-          setPets(products.items)
-          console.log({ products })
+          setPetsPerPage(products.items, currentPage)
         }
       } catch (e) {
         console.error(e)
       }
     })
-  }, [])
+  }, [currentPage, pageSize, setPetsPerPage])
 
   useEffect(() => {
-    fetchPets()
-  }, [fetchPets])
+    if (!inStore) {
+      fetchPets()
+    }
+  }, [fetchPets, inStore])
 
   if (isPending) {
-    return <p>LOADING...</p>
+    return (
+      <div className="flex min-h-[400px] items-center justify-center">
+        <p className="font-medium">LOADING...</p>
+      </div>
+    )
   }
 
   return (
@@ -87,7 +102,7 @@ export function ShopPets() {
             </AdaptiveModal>
           </div>
         </div>
-        <PetGrid pets={pets} />
+        <PetGrid pets={cachedPets} />
       </div>
     </section>
   )

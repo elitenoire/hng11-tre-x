@@ -2,11 +2,15 @@ import type { Products, TimbuError, GetProductsResponse } from '@/types/products
 import { NextResponse } from 'next/server'
 
 export async function GET(request: Request): Promise<NextResponse<GetProductsResponse>> {
+  const url = new URL(request.url)
+  const searchParams = new URLSearchParams(url.searchParams)
+
+  const page = searchParams.get('page') ?? 1
+  const size = searchParams.get('size') ?? 10
+
   const oid = process.env.NEXT_PUBLIC_TIMBU_CLOUD_ORGANIZATION_ID
   const apiKey = process.env.NEXT_PUBLIC_TIMBU_CLOUD_API_KEY
   const appId = process.env.NEXT_PUBLIC_TIMBU_CLOUD_APP_ID
-  const size = 30
-  const page = 1
 
   const TIMBU_URL = 'https://api.timbu.cloud/products'
   const SHALOM_URL = 'https://timbu-get-all-products.reavdev.workers.dev/'
