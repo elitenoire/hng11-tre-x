@@ -1,3 +1,7 @@
+'use client'
+
+import { useEffect, useState, useCallback, useTransition } from 'react'
+
 import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -11,11 +15,39 @@ import {
 import { PetGrid } from '@/components/PetGrid'
 import { FilterPanel } from '@/components/Filters'
 
+import type { GetProductsResponse } from '@/types/products'
+
 import Filter from '@/public/filter.svg'
 
-import { pets } from '@/data/pets'
+import { IPets } from '@/types/app'
 
 export function ShopPets() {
+  const [pets, setPets] = useState<IPets>([])
+  const [isPending, startTransition] = useTransition()
+
+  const fetchPets = useCallback(() => {
+    startTransition(async () => {
+      try {
+        const response = await fetch('/api/products')
+        const { error, products } = (await response.json()) as GetProductsResponse
+        if (products) {
+          setPets(products.items)
+          console.log({ products })
+        }
+      } catch (e) {
+        console.error(e)
+      }
+    })
+  }, [])
+
+  useEffect(() => {
+    fetchPets()
+  }, [fetchPets])
+
+  if (isPending) {
+    return <p>LOADING...</p>
+  }
+
   return (
     <section id="shop-pets" className="mt-10 flex gap-6">
       <div className="sticky top-[calc(100px+1rem)] w-[280px] space-y-5 self-start text-primary max-lg:hidden">

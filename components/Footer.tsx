@@ -14,7 +14,7 @@ export function Footer() {
           <h3 className="max-w-[380px] text-xl font-semibold capitalize leading-8 text-primary-foreground md:max-lg:max-w-[284px] lg:text-2xl lg:leading-9">
             <span className="block">Perfect Pets for Every Home</span>
             <span className="text-[0.8em] font-medium opacity-80">
-              Sign Up Now and don't miss out
+              Sign Up Now and don&apos;t miss out
             </span>
           </h3>
           <div className="flex flex-1 gap-3 rounded-[14px] bg-primary-foreground p-3 max-md:flex-col md:items-center">

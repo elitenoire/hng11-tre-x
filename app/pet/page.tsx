@@ -9,6 +9,7 @@ import { SocialMedia } from '@/components/SocialMedia'
 import { PetCarousel } from '@/components/PetCarousel'
 import { PetReview } from '@/components/PetReview'
 import { DiscoverPets } from '@/components/DiscoverPets'
+import { CartButtons } from '@/components/cart/CartButtons'
 
 import CartSVG from '@/public/cart.svg'
 import Health100 from '@/public/health-100.svg?url'
@@ -55,6 +56,7 @@ export default function PetPage() {
               <Price amount={230432.0} />
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-2 sm:max-w-md lg:flex-row-reverse lg:justify-end">
+              {/* <CartButtons size="md" className="flex-1" /> */}
               <Button variant="subtle" size="md" asChild className="flex-1 max-sm:px-2.5">
                 <Link href="/cart">
                   <CartSVG className="size-5" />

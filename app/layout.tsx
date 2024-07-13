@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { Providers } from '@/app/providers'
 
 import { sharedMetadata } from '@/config/metadata'
 
@@ -25,11 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${fonts} flex flex-col font-sans`}>
-        <Header />
-        <main className="mt-[57px] flex flex-1 flex-col px-4 py-10 md:mt-[100px]">
-          <div className="container">{children}</div>
-        </main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main className="mt-[57px] flex flex-1 flex-col px-4 py-10 md:mt-[100px]">
+            <div className="container">{children}</div>
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )

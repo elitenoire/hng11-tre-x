@@ -2,13 +2,10 @@ import type { PropsWithChildren } from 'react'
 import Image from 'next/image'
 import { Price } from '@/components/Price'
 
-import type { Pet } from '@/data/pets'
-
+import type { IPetDisplay } from '@/types/app'
 export type OrderCardProps = {
-  qty?: number
-  alt?: string
   shrink?: boolean
-} & Pick<Pet, 'title' | 'price' | 'gene' | 'imgSrc'>
+} & Omit<IPetDisplay, 'id' | 'age' | 'urlSlug'>
 
 export function OrderCard({
   title,

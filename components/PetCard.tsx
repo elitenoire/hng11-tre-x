@@ -2,16 +2,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Price } from '@/components/Price'
+import { CartButtons } from '@/components/cart/CartButtons'
 
-import type { Pet } from '@/data/pets'
+import type { IPetDisplay } from '@/types/app'
 
 import CartSVG from '@/public/cart.svg'
 
-type PetCardProps = {
-  alt?: string
-} & Pet
+type PetCardProps = {} & IPetDisplay
 
-export function PetCard({ title, gene, age, price, imgSrc, alt = 'pet for sale' }: PetCardProps) {
+export function PetCard(product: PetCardProps) {
+  const { title, gene, age, price, imgSrc, alt = 'pet for sale' } = product
   return (
     <article className="group flex flex-col gap-2 rounded-xl bg-background p-2 shadow-soft">
       <Link href="/pet">
@@ -43,15 +43,7 @@ export function PetCard({ title, gene, age, price, imgSrc, alt = 'pet for sale' 
           <Price amount={price} />
         </p>
         <div className="flex gap-1.5 sm:gap-2.5">
-          <Button variant="subtle" asChild className="max-sm:px-2.5">
-            <Link href="/cart">
-              <CartSVG className="size-5" />
-              <span className="ml-1.5 max-lg:hidden">Add to cart</span>
-            </Link>
-          </Button>
-          <Button variant="inverse" asChild className="flex-1">
-            <Link href="/checkout">Buy now</Link>
-          </Button>
+          <CartButtons product={product} shrink />
         </div>
       </div>
     </article>
