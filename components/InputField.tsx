@@ -1,5 +1,5 @@
 import type { HTMLInputTypeAttribute } from 'react'
-import { Input } from '@/components/ui/input'
+import { Input, type InputProps } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
 import { cn } from '@/lib/utils'
@@ -10,7 +10,7 @@ type InputFieldProps = {
   type?: HTMLInputTypeAttribute
   className?: string
   fluid?: boolean
-}
+} & InputProps
 
 export function InputField({
   label,
@@ -18,6 +18,7 @@ export function InputField({
   fluid = true,
   className,
   type = 'text',
+  ...props
 }: InputFieldProps) {
   return (
     <div className={cn('grid items-center gap-2', fluid && 'w-full', className)}>
@@ -29,6 +30,7 @@ export function InputField({
         id={label}
         placeholder={placeholder}
         className="border-1.5 shadow-body placeholder:text-foreground/70"
+        {...props}
       />
     </div>
   )

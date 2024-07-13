@@ -4,7 +4,7 @@
     </a>
 </div>
 
-This is a collaborative work for the HNG11 Stage 2 Design and Frontend Task.
+This is a collaborative work for the HNG11 Stage 3 Frontend Task.
 
 > Get ready to collaborate with a front-end developer to build a simple and user-friendly online
 > store, focusing on a fast and streamlined shopping experience. This will be a single-seller

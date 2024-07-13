@@ -110,7 +110,7 @@ export function MyCheckout() {
           description="Please finalize your purchase by entering your card payment information."
         >
           <div className="space-y-5">
-            <InputField label="Email Address" placeholder="Enter your residential address" />
+            <InputField label="Email Address" type="email" placeholder="Enter your email address" />
             <div className="flex flex-wrap items-end gap-x-2.5 gap-y-5">
               <InputField
                 className="flex-[4] flex-shrink-0"
@@ -118,8 +118,8 @@ export function MyCheckout() {
                 placeholder="Card number"
                 fluid={false}
               />
-              <Input className="flex-[1.5] flex-shrink-0" placeholder="MM/YY" />
-              <Input className="flex-1 flex-shrink-0" placeholder="CVC" />
+              <Input className="flex-[1.5] flex-shrink-0" placeholder="MM/YY" required />
+              <Input className="flex-1 flex-shrink-0" placeholder="CVC" required />
             </div>
             <InputField label="Card Holder" placeholder="Enter the name on your card" />
             <InputField label="Billing Address" placeholder="Enter your billing address" />

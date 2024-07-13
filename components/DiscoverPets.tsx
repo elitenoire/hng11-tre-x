@@ -1,8 +1,8 @@
-import { PetGrid } from '@/components/PetGrid'
+// import { PetGrid } from '@/components/PetGrid'
 
-import { pets } from '@/data/pets'
+// import { pets } from '@/data/pets'
 
-const popularPets = pets.filter((_, i) => i % 2 === 1)
+// const popularPets = pets.filter((_, i) => i % 2 === 1)
 
 export function DiscoverPets() {
   return (
@@ -11,7 +11,7 @@ export function DiscoverPets() {
         <span>Discover what other customers enjoy, which </span>
         <span className="text-2xl font-bold capitalize text-primary">You may also like</span>
       </h3>
-      <PetGrid pets={popularPets} />
+      {/* <PetGrid pets={popularPets} /> */}
     </div>
   )
 }
