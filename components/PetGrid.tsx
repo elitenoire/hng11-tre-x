@@ -13,6 +13,7 @@ export function PetGrid({ pets }: PetGridProps) {
         const urlSlug = `${unique_id}-${url_slug}`
         const img = photos.find(({ position }) => position === 1) ?? photos[0]
         // TODO: Maybe use filter map (reduce) to filter out cards with no price
+        // or replace with Out of Stock
         const price = current_price ?? 280000.0 //
         const ageGene = categories.reduce(
           (acc, { name }) => {
@@ -33,7 +34,7 @@ export function PetGrid({ pets }: PetGridProps) {
               age={ageGene?.age || ''}
               gene={ageGene?.gene || ''}
               price={price}
-              imgSrc={`https://api.timbu.cloud/images/${img.url}`}
+              imgSrc={img?.url || ''}
             />
           </li>
         )

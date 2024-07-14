@@ -1,9 +1,8 @@
 import type { Products, TimbuError, GetProductsResponse } from '@/types/products'
-import { NextResponse } from 'next/server'
+import { NextResponse, NextRequest } from 'next/server'
 
-export async function GET(request: Request): Promise<NextResponse<GetProductsResponse>> {
-  const url = new URL(request.url)
-  const searchParams = new URLSearchParams(url.searchParams)
+export async function GET(request: NextRequest): Promise<NextResponse<GetProductsResponse>> {
+  const searchParams = request.nextUrl.searchParams
 
   const page = searchParams.get('page') ?? 1
   const size = searchParams.get('size') ?? 10
@@ -44,7 +43,10 @@ export async function GET(request: Request): Promise<NextResponse<GetProductsRes
             available_quantity,
             url_slug,
             last_updated,
-            photos: photos.map(({ url, position }) => ({ url, position })),
+            photos: photos.map(({ url, position }) => ({
+              url: `https://api.timbu.cloud/images/${url}`,
+              position,
+            })),
             current_price: current_price ? (current_price[0].NGN?.[0] as number | undefined) : null,
             categories: categories.map(({ name, description }) => ({ name, description })),
           }

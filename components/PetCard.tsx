@@ -1,20 +1,17 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 import { Price } from '@/components/Price'
 import { CartButtons } from '@/components/cart/CartButtons'
 
 import type { IPetDisplay } from '@/types/app'
 
-import CartSVG from '@/public/cart.svg'
-
 type PetCardProps = {} & IPetDisplay
 
 export function PetCard(product: PetCardProps) {
-  const { title, gene, age, price, imgSrc, alt = 'pet for sale' } = product
+  const { id, title, gene, age, price, imgSrc, alt = 'pet for sale' } = product
   return (
     <article className="group flex flex-col gap-2 rounded-xl bg-background p-2 shadow-soft">
-      <Link href="/pet">
+      <Link href={`/pet/${id}`}>
         <span className="relative block aspect-square overflow-hidden rounded-lg">
           <Image
             src={imgSrc}
@@ -27,7 +24,7 @@ export function PetCard(product: PetCardProps) {
       </Link>
       <div className="space-y-2 pt-2 sm:px-2 sm:pb-2">
         <h3 className="font-bold text-primary max-lg:text-sm">
-          <Link href="/pet" className="transition-colors hover:text-primary-light">
+          <Link href={`/pet/${id}`} className="transition-colors hover:text-primary-light">
             {title}
           </Link>
         </h3>
