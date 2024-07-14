@@ -14,10 +14,12 @@ export async function GET(request: NextRequest): Promise<NextResponse<GetProduct
   const TIMBU_URL = 'https://api.timbu.cloud/products'
   const SHALOM_URL = 'https://timbu-get-all-products.reavdev.workers.dev/'
 
+  const PRODUCT_URL = process.env.NEXT_PUBLIC_FETCH_ALL_PRODUCTS_URL ?? TIMBU_URL
+
   const queryString = `?organization_id=${oid}&Apikey=${apiKey}&Appid=${appId}&size=${size}&page=${page}`
 
   try {
-    const res = await fetch(`${SHALOM_URL}${queryString}`, {
+    const res = await fetch(`${PRODUCT_URL}${queryString}`, {
       // next: { revalidate: 300 },
     })
     const data: Products | TimbuError = await res.json()
@@ -64,7 +66,7 @@ export async function GET(request: NextRequest): Promise<NextResponse<GetProduct
     )
   } catch (error: any) {
     return NextResponse.json(
-      { error: 'Something went wrong', products: null },
+      { error: error.message, products: null },
       { status: error.status, statusText: error.statusText }
     )
   }

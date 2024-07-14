@@ -1,7 +1,7 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useCallback, useTransition } from 'react'
+import { useEffect, useCallback, useState, useTransition } from 'react'
 import { usePetStore } from '@/stores/pet-store-provider'
 
 import { ChevronDown } from 'lucide-react'
@@ -21,13 +21,11 @@ import type { GetProductsResponse } from '@/types/products'
 
 import Filter from '@/public/filter.svg'
 
-// import { IPets } from '@/types/app'
-
 export function ShopPets() {
   const searchParams = useSearchParams()
   const currentPage = Number(searchParams.get('page')) || 1
   const pageSize = Number(searchParams.get('size')) || 10
-
+  const [totalPets, setTotalPets] = useState(0)
   const { petsPerPage, setPetsPerPage } = usePetStore((state) => state)
   // const [pets, setPets] = useState<IPets>([])
   const [isPending, startTransition] = useTransition()
@@ -41,13 +39,14 @@ export function ShopPets() {
         const response = await fetch(`/api/products?page=${currentPage}&size=${pageSize}`)
         const { error, products } = (await response.json()) as GetProductsResponse
         if (products) {
+          setTotalPets(products.total)
           setPetsPerPage(products.items, currentPage)
         }
       } catch (e) {
         console.error(e)
       }
     })
-  }, [currentPage, pageSize, setPetsPerPage])
+  }, [currentPage, pageSize, setPetsPerPage, setTotalPets])
 
   useEffect(() => {
     if (!inStore) {
@@ -72,8 +71,8 @@ export function ShopPets() {
       <div className="flex-1 space-y-5">
         <div className="flex justify-between gap-y-5 max-lg:flex-col-reverse lg:items-center">
           <div className="flex items-baseline gap-4">
-            <h2 className="text-2xl font-bold text-primary">Small Dog</h2>
-            <p className="opacity-80">52 puppies</p>
+            <h2 className="text-2xl font-bold text-primary">All Dogs</h2>
+            <p className="opacity-80">{totalPets} puppies</p>
           </div>
           <div className="flex flex-wrap items-center justify-between gap-y-2.5">
             <Button variant="outline" className="rounded-full border-border text-foreground/50">

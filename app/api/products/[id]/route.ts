@@ -1,9 +1,4 @@
-import type {
-  ProductItem,
-  TimbuError,
-  GetProductResponse,
-  ExtraInfoList,
-} from '@/types/singleProduct'
+import type { ProductItem, TimbuError, GetProductResponse } from '@/types/singleProduct'
 import { NextResponse, NextRequest } from 'next/server'
 
 export async function GET(
@@ -20,19 +15,15 @@ export async function GET(
   const SHALOM_URL = 'https://timbu-get-single-product.reavdev.workers.dev/'
   //   const EXTRA_INFO_URL = 'https://api.timbu.cloud/extrainfo/products/'
 
+  const PRODUCT_URL = process.env.NEXT_PUBLIC_FETCH_PRODUCT_URL ?? TIMBU_URL
+
   const queryString = `?organization_id=${oid}&Apikey=${apiKey}&Appid=${appId}`
 
   try {
-    const res = await fetch(`${SHALOM_URL}${pid}${queryString}`, {
+    const res = await fetch(`${PRODUCT_URL}/${pid}${queryString}`, {
       // next: { revalidate: 300 },
     })
-    // const [productResponse, extraInfoResponse] = await Promise.all([
-    //     fetch(`${SHALOM_URL}${pid}${queryString}`),
-    //     fetch(`${EXTRA_INFO_URL}${pid}${queryString}`)
-    // ])
     const data: ProductItem | TimbuError = await res.json()
-    // const productData: ProductItem | TimbuError = await productResponse.json()
-    // const extraInfoData: ExtraInfoList = await extraInfoResponse.json()
 
     if (res.ok) {
       const {
