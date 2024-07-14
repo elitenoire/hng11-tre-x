@@ -32,7 +32,7 @@ export default function CartPage() {
           <MyCart />
         </div>
       </div>
-      {/* <DiscoverPets /> */}
+      <DiscoverPets page={2} />
     </div>
   )
 }

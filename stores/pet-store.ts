@@ -3,17 +3,15 @@ import { IPets } from '@/types/app'
 
 export type PetState = {
   pets: IPets
-  //   petsPerPage: {
-  //     page: number
-  //     pets: IPets
-  //   }[]
   petsPerPage: Record<string, IPets>
+  petsTotal: number
 }
 
 export type PetActions = {
   //   getPets: () => void
   setPets: (pets: IPets) => void
   setPetsPerPage: (pets: IPets, page: number) => void
+  setPetsTotal: (petsTotal: number) => void
 }
 
 export type PetStore = PetState & PetActions
@@ -21,6 +19,7 @@ export type PetStore = PetState & PetActions
 export const defaultInitState: PetState = {
   pets: [],
   petsPerPage: {},
+  petsTotal: 0,
 }
 
 export const createPetStore = (initState: PetState = defaultInitState) => {
@@ -32,5 +31,6 @@ export const createPetStore = (initState: PetState = defaultInitState) => {
         ...state,
         petsPerPage: { ...state.petsPerPage, [page.toString()]: pets },
       })),
+    setPetsTotal: (petsTotal: number) => set((state) => ({ ...state, petsTotal })),
   }))
 }
