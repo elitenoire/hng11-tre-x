@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Price } from '@/components/Price'
-import { CartButtons } from '@/components/cart/CartButtons'
+import { AddToCartButtons } from '@/components/cart/AddToCartButtons'
 
 import type { IPetDisplay } from '@/types/app'
 
@@ -40,7 +40,7 @@ export function PetCard(product: PetCardProps) {
           <Price amount={price} />
         </p>
         <div className="flex gap-1.5 sm:gap-2.5">
-          <CartButtons product={product} shrink />
+          <AddToCartButtons product={product} shrink />
         </div>
       </div>
     </article>

@@ -2,21 +2,21 @@
 
 import { useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import { useCart } from 'react-use-cart'
 import { type ButtonProps, Button } from '@/components/ui/button'
+import { useCart } from '@/hooks/useCart'
 
 import CartSVG from '@/public/cart.svg'
 
 import { cn } from '@/lib/utils'
 import type { IPetDisplay } from '@/types/app'
 
-type CartButtonsProps = {
+type AddToCartButtonsProps = {
   product: IPetDisplay
   shrink?: boolean
 } & Pick<ButtonProps, 'size' | 'className'>
 
-export function CartButtons({ shrink, size, product, className }: CartButtonsProps) {
-  const { addItem, emptyCart, totalItems } = useCart()
+export function AddToCartButtons({ shrink, size, product, className }: AddToCartButtonsProps) {
+  const { addItem } = useCart()
   const { push } = useRouter()
 
   const addtoCart = useCallback(() => {

@@ -1,10 +1,10 @@
 'use client'
 
 import { useCallback } from 'react'
-import { useCart } from 'react-use-cart'
 
 import { Trash2, Plus, Minus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useCart } from '@/hooks/useCart'
 
 type QtyInputProps = {
   itemId: string

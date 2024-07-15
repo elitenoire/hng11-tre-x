@@ -7,7 +7,7 @@ import { BreadcrumbsPets } from '@/components/Breadcrumbs'
 import { Price } from '@/components/Price'
 import { SocialMedia } from '@/components/SocialMedia'
 import { PetCarousel } from '@/components/PetCarousel'
-import { CartButtons } from '@/components/cart/CartButtons'
+import { AddToCartButtons } from '@/components/cart/AddToCartButtons'
 import { ProductInformation } from '@/components/ProductInformation'
 
 import Health100 from '@/public/health-100.svg?url'
@@ -120,7 +120,7 @@ export function PetInfo({ id }: PetInfoProps) {
           </p>
           {current_price && (
             <div className="flex flex-wrap gap-x-4 gap-y-2 sm:max-w-md lg:flex-row-reverse lg:justify-end">
-              <CartButtons product={petCartInfo} size="md" className="flex-1" />
+              <AddToCartButtons product={petCartInfo} size="md" className="flex-1" />
             </div>
           )}
         </div>

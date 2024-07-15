@@ -3,6 +3,7 @@ import { SearchIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { MobileNav } from '@/components/MobileNav'
+import { CartButton } from '@/components/cart/CartButton'
 
 import CartSVG from '@/public/cart.svg'
 import LogoSVG from '@/public/logo.svg'
@@ -38,17 +39,7 @@ export function Header() {
           <Button variant="ghost" size="icon" className="rounded-full md:hidden">
             <SearchSVG className="size-5" />
           </Button>
-          <Button
-            variant="ghost"
-            size="md"
-            className="rounded-full p-0 max-sm:w-11 sm:p-2.5"
-            asChild
-          >
-            <Link href="/cart">
-              <CartSVG className="size-5" />
-              <span className="ml-1.5 max-sm:hidden">Cart</span>
-            </Link>
-          </Button>
+          <CartButton />
         </div>
       </div>
     </header>
